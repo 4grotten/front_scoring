@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    // Sidebar navigation
+    --sidenav-width: 5rem;
+    --sidenav-collapsed-width: 16.5625rem;
+    
+
+    //side navigation bar backgorund color
+    --sidenav-background-color: #263238;
+    --sidenav-box-shadow-color: #8690a3;
+
+    //sidenav link color
+    --sidenav-link-color: #f3f3f3;
+
+    // hover sidenav item link icon
+    --sidenav-item-link-icon-background-color_hover: #fff;
+    --sidenav-item-link-icon-color_hover: #000;
+
+
+    // active sidenav item link icon 
+    --sidenav-active-item-background-color: #fff;
+    --sidenav-active-item-link-icon-color: #000;
+}
+
+body {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(202, 202, 202, 0.2);
+}
+
+.title-input {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: underline 2px;
+    text-underline-offset: 3px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    margin: 5px 0 10px 0;
+    display: block;
+}

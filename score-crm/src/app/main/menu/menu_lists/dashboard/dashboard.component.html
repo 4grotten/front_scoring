@@ -1,0 +1,373 @@
+<div class="container">
+    <div class="form">
+        <form [formGroup]="formScore" (ngSubmit)="sendBack(formScore.value)">
+            <div class="total_inf" formGroupName="total_inf">
+                <h2>Информация о клиенте</h2>
+                <div class="client_info" formGroupName="client_info">
+                    <h3>Клиент:</h3>
+
+                    <label class="inputL" for="fName">Фамилия</label>
+                    <input class="inpuT" id="fName" type="text" formControlName="first_name">
+                    
+                    <label class="inputL" for="mName">Имя</label>
+                    <input class="inpuT" id="mName" type="text" formControlName="middle_name">
+                    
+                    <label class="inputL" for="lName">Отчетсво</label>
+                    <input class="inpuT" id="lName" type="text" formControlName="last_name">
+                    
+                    <label class="inputL" for="phoneNumber">Номер телефона</label>
+                    <input class="inpuT" id="phoneNumber" type="text" formControlName="phone_number">
+                    
+                    <label class="inputL" for="inn">ИНН</label>
+                    <input class="inpuT" id="inn" type="number" formControlName="inn">
+                </div>
+
+                <div class="bank_info" formGroupName="bank_info">
+                    <h3>О банке:</h3>
+
+                    <label class="inputL" for="bankName">Имя банка</label>
+                    <input class="inpuT" id="bankName" type="text" formControlName="bank_name">
+
+                    <label class="inputL" for="bracnhBank">Филиал фанка</label>
+                    <input class="inpuT" id="bracnhBank" type="text" formControlName="bank_branch">
+
+                    <div class="bank_loan_manager" formGroupName="bank_loan_manager">
+                        <h3>Кредитный менеджер:</h3>
+
+                        <label class="inputL" for="fNameLM">Фамилия куратора</label>
+                        <input class="inpuT" id="fNameLM" type="text" formControlName="first_name">
+                        
+                        <label class="inputL" for="mNameLM">Имя куратора</label>
+                        <input class="inpuT" id="mNameLM" type="text" formControlName="middle_name">
+                        
+                        <label class="inputL" for="lNameLM">Отчетсво куратора</label>
+                        <input class="inpuT" id="lNameLM" type="text" formControlName="last_name">
+                        
+                        <label class="inputL" for="phoneNumberLM">Номер телефона</label>
+                        <input class="inpuT" id="phoneNumberLM" type="text" formControlName="phone_number">
+                    </div>
+                </div>
+
+                <div class="financial_data_from_bank" formGroupName="financial_data_from_bank">
+                    <h3>Финаннсовые данные о клиенте:</h3>
+                    <label class="inputL" for="funding_amount">Сумма финансирования</label>
+                    <input class="inpuT" id="funding_amount" type="number" formControlName="funding_amount">
+
+                    <label class="inputL" for="guarantee_amount">Сумма гарантии</label>
+                    <input class="inpuT" id="guarantee_amount" type="number" formControlName="guarantee_amount">
+
+                    <label class="inputL" for="funding_term_month">Период финансирования(мес)</label>
+                    <input class="inpuT" id="funding_term_month" type="number" formControlName="funding_term_month">
+
+                    <label class="inputL" for="interest_rate">Процентная ставка</label>
+                    <input class="inpuT" id="interest_rate" type="number" formControlName="interest_rate">
+
+                    <label class="inputL" for="purpose_funding">Причина финансирования</label>
+                    <input class="inpuT" id="purpose_funding" type="text" formControlName="purpose_funding">
+
+                    <label class="inputL" for="kind_of_business">Вид деятельности</label>
+                    <input class="inpuT" id="kind_of_business" type="number" formControlName="kind_of_business">
+                </div>
+
+            </div>
+
+            <div class="quality_indicator" formGroupName="quality_indicator">
+                <h2>Качественный показатель</h2>
+                <label class="inputL" for="business_lifespan">Срок работы бизнеса (мес)</label>
+                <input class="inpuT" id="business_lifespan" type="number" formControlName="business_lifespan">
+
+                <label class="inputL" for="term_has_patent">Срок патента (мес)</label>
+                <input class="inpuT" id="term_has_patent" type="number" formControlName="term_has_patent">
+
+                <label class="inputL" for="debt_to_budget">Задолжность перед бюджетом</label>
+                <input class="inpuT" id="debt_to_budget" type="checkbox" formControlName="debt_to_budget">
+
+                <label class="inputL" for="credit_history_of_spouse">Кредитная история супруга(и)</label>
+                <input class="inpuT" id="credit_history_of_spouse" type="number" formControlName="credit_history_of_spouse">
+
+                <div class="commercial_property" formGroupName="commercial_property">
+                    <h3>Комерческая недвижимость</h3>
+                    <label class="inputL" for="own_property">Собственная</label>
+                    <input class="inpuT" id="own_property" type="checkbox" formControlName="own_property">
+
+                    <label class="inputL" for="rented_property">Арендованная</label>
+                    <input class="inpuT" id="rented_property" type="checkbox" formControlName="rented_property">
+
+                    <label class="inputL" for="own_property_percentage">Соотношение владения собственной от арендованной</label>
+                    <input class="inpuT" id="own_property_percentage" type="number" formControlName="own_property_percentage">
+                </div>
+                <h3>Собственная недвижимость</h3>
+
+                <label class="inputL" for="own_propertyy">Есть собственная недвижимость</label>
+                <input class="inpuT" id="own_propertyy" type="checkbox" formControlName="own_property">
+            </div>
+
+            <div class="financial_data" formGroupName="financial_data">
+                <h2>Финаннсовые данные</h2>
+                <div class="balance" formGroupName="balance">
+                    <h3>Баланс:</h3>
+                    <div class="first_date" formGroupName="first_date">
+                        <h3>Первая дата:</h3>
+                        <label class="inputL">Сумма финансирования</label>
+                        <input class="inpuT" type="date" formControlName="date">
+
+                        <div class="active" formGroupName="active">
+                            <h4>Активы:</h4>
+                            <div class="working_assets" formGroupName="working_assets">
+                                <h4>ОБОРОТНЫЕ АКТИВЫ</h4>
+                                <div class="liquid_funds" formGroupName="liquid_funds">
+                                    <h4>Ликивдные средства:</h4>
+                                    <label class="inputL">Касса</label>
+                                    <input class="inpuT" type="number" formControlName="cash_box">
+
+                                    <label class="inputL">Расчетный счет</label>
+                                    <input class="inpuT" id="bank_account" type="number" formControlName="bank_account">
+
+                                    <label class="inputL">Сумма финансирования</label>
+                                    <input class="inpuT" type="number" formControlName="conservation">
+                                </div>
+                                <div class="accounts_receivable" formGroupName="accounts_receivable">
+                                    <h4>Дебиторская задолжность:</h4>
+                                    <label class="inputL">Счета к получению</label>
+                                    <input class="inpuT" type="number" formControlName="check_to_receive">
+
+                                    <label class="inputL">Пердоплата за товар</label>
+                                    <input class="inpuT" type="number" formControlName="prepayment_to_product">
+
+                                    <label class="inputL">Выданные авансы</label>
+                                    <input class="inpuT" type="number" formControlName="paid_prepaid_expense">
+                                </div>
+                                <div class="inventories" formGroupName="inventories">
+                                    <h4>Товарно материальные запасы:</h4>
+                                    <label class="inputL">Товары в торговом зале и на складе</label>
+                                    <input class="inpuT" type="number" formControlName="first">
+
+                                    <label class="inputL">Товары, полученные на реализацию</label>
+                                    <input class="inpuT" type="number" formControlName="second">
+
+                                    <label class="inputL">Товары в пути</label>
+                                    <input class="inpuT" type="number" formControlName="third">
+
+                                    <label class="inputL">Сырье и материалы</label>
+                                    <input class="inpuT" type="number" formControlName="fourth">
+
+                                    <label class="inputL">Полуфабрикаты</label>
+                                    <input class="inpuT" type="number" formControlName="five">
+
+                                    <label class="inputL">Готовая продукция</label>
+                                    <input class="inpuT" type="number" formControlName="six">
+                                </div>
+                            </div>
+
+                            <div class="main_capital" formGroupName="main_capital">
+                                <h5>Основной капитал</h5>
+                                <label class="inputL">Недвижимость</label>
+                                <input class="inpuT" type="number" formControlName="property">
+
+                                <label class="inputL">Оборудование</label>
+                                <input class="inpuT" type="number" formControlName="equipment">
+
+                                <label class="inputL">Транспорт</label>
+                                <input class="inpuT" type="number" formControlName="vehicle">
+
+                                <label class="inputL">Прочее</label>
+                                <input class="inpuT" type="number" formControlName="other">
+
+                                <label class="inputL">Инвестиции</label>
+                                <input class="inpuT" type="number" formControlName="investments">
+                            </div>
+
+                        </div>
+
+                        <div class="passive" formGroupName="passive">
+                            <h4>Пасивы:</h4>
+                            <div class="borrowed_capital" formGroupName="borrowed_capital">
+                                <h4>Заменый капитал</h4>
+                                <div class="short_term_debt" formGroupName="short_term_debt">
+                                    <h4>Кратосрончый заем</h4>
+                                    <div class="credit" formGroupName="credit">
+                                        <h5>Кредиты</h5>
+                                        <label class="inputL">Кредит клиента</label>
+                                        <input class="inpuT" type="number" formControlName="client">
+
+                                        <label class="inputL">Кредит супруги(а)</label>
+                                        <input class="inpuT" type="number" formControlName="spouse">
+                                    </div>
+                                    <label class="inputL">Счета к оплате за товар, услуги</label>
+                                    <input class="inpuT" type="number" formControlName="account_for_occasion">
+
+                                    <label class="inputL">Товарный кредит</label>
+                                    <input class="inpuT" type="number" formControlName="trade_credit">
+
+                                    <label class="inputL">Предоплата от покупателей</label>
+                                    <input class="inpuT" type="number" formControlName="prepayment_from_customer">
+
+                                    <label class="inputL">Расчеты с бюджетом</label>
+                                    <input class="inpuT" type="number" formControlName="settlements_with_budget">
+
+                                    <label class="inputL">Расчеты по внебюджетным платежам</label>
+                                    <input class="inpuT" type="number" formControlName="off_budget_payments">
+
+                                    <label class="inputL">Прочая</label>
+                                    <input class="inpuT" type="number" formControlName="other">
+                                </div>
+                                <h4>Долгосрончый кредит</h4>
+                                <label class="inputL">Долгосрончый кредит</label>
+                                <input class="inpuT" type="number" formControlName="long_term_debt">
+                            </div>
+
+                            <div class="own_capital" formGroupName="own_capital">
+                                <h4>СОБСТВЕННЫЙ КАПИТАЛ</h4>
+                                <label class="inputL">Уставный капитал (стартовый)</label>
+                                <input class="inpuT" type="number" formControlName="statutory_capital_startup">
+
+                                <label class="inputL">Собственный капитал (прибыль)</label>
+                                <input class="inpuT" type="number" formControlName="own_capital_profit">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="second_date" formGroupName="second_date">
+                        <h3>Вторая дата дата:</h3>
+                        <label class="inputL">Сумма финансирования</label>
+                        <input class="inpuT" type="date" formControlName="date">
+                    
+                        <div class="active" formGroupName="active">
+                            <h4>Активы:</h4>
+                            <div class="working_assets" formGroupName="working_assets">
+                                <h4>ОБОРОТНЫЕ АКТИВЫ</h4>
+                                <div class="liquid_funds" formGroupName="liquid_funds">
+                                    <h4>Ликивдные средства:</h4>
+                                    <label class="inputL">Касса</label>
+                                    <input class="inpuT" type="number" formControlName="cash_box">
+                    
+                                    <label class="inputL">Расчетный счет</label>
+                                    <input class="inpuT" id="bank_account" type="number" formControlName="bank_account">
+                    
+                                    <label class="inputL">Сумма финансирования</label>
+                                    <input class="inpuT" type="number" formControlName="conservation">
+                                </div>
+                                <div class="accounts_receivable" formGroupName="accounts_receivable">
+                                    <h4>Дебиторская задолжность:</h4>
+                                    <label class="inputL">Счета к получению</label>
+                                    <input class="inpuT" type="number" formControlName="check_to_receive">
+                    
+                                    <label class="inputL">Пердоплата за товар</label>
+                                    <input class="inpuT" type="number" formControlName="prepayment_to_product">
+                    
+                                    <label class="inputL">Выданные авансы</label>
+                                    <input class="inpuT" type="number" formControlName="paid_prepaid_expense">
+                                </div>
+                                <div class="inventories" formGroupName="inventories">
+                                    <h4>Товарно материальные запасы:</h4>
+                                    <label class="inputL">Товары в торговом зале и на складе</label>
+                                    <input class="inpuT" type="number" formControlName="first">
+                    
+                                    <label class="inputL">Товары, полученные на реализацию</label>
+                                    <input class="inpuT" type="number" formControlName="second">
+                    
+                                    <label class="inputL">Товары в пути</label>
+                                    <input class="inpuT" type="number" formControlName="third">
+                    
+                                    <label class="inputL">Сырье и материалы</label>
+                                    <input class="inpuT" type="number" formControlName="fourth">
+                    
+                                    <label class="inputL">Полуфабрикаты</label>
+                                    <input class="inpuT" type="number" formControlName="five">
+                    
+                                    <label class="inputL">Готовая продукция</label>
+                                    <input class="inpuT" type="number" formControlName="six">
+                                </div>
+                            </div>
+                    
+                            <div class="main_capital" formGroupName="main_capital">
+                                <h5>Основной капитал</h5>
+                                <label class="inputL">Недвижимость</label>
+                                <input class="inpuT" type="number" formControlName="property">
+                    
+                                <label class="inputL">Оборудование</label>
+                                <input class="inpuT" type="number" formControlName="equipment">
+                    
+                                <label class="inputL">Транспорт</label>
+                                <input class="inpuT" type="number" formControlName="vehicle">
+                    
+                                <label class="inputL">Прочее</label>
+                                <input class="inpuT" type="number" formControlName="other">
+                    
+                                <label class="inputL">Инвестиции</label>
+                                <input class="inpuT" type="number" formControlName="investments">
+                            </div>
+                    
+                        </div>
+                    
+                        <div class="passive" formGroupName="passive">
+                            <h4>Пасивы:</h4>
+                            <div class="borrowed_capital" formGroupName="borrowed_capital">
+                                <h4>Заменый капитал</h4>
+                                <div class="short_term_debt" formGroupName="short_term_debt">
+                                    <h4>Кратосрончый заем</h4>
+                                    <div class="credit" formGroupName="credit">
+                                        <h5>Кредиты</h5>
+                                        <label class="inputL">Кредит клиента</label>
+                                        <input class="inpuT" type="number" formControlName="client">
+                    
+                                        <label class="inputL">Кредит супруги(а)</label>
+                                        <input class="inpuT" type="number" formControlName="spouse">
+                                    </div>
+                                    <label class="inputL">Счета к оплате за товар, услуги</label>
+                                    <input class="inpuT" type="number" formControlName="account_for_occasion">
+                    
+                                    <label class="inputL">Товарный кредит</label>
+                                    <input class="inpuT" type="number" formControlName="trade_credit">
+                    
+                                    <label class="inputL">Предоплата от покупателей</label>
+                                    <input class="inpuT" type="number" formControlName="prepayment_from_customer">
+                    
+                                    <label class="inputL">Расчеты с бюджетом</label>
+                                    <input class="inpuT" type="number" formControlName="settlements_with_budget">
+                    
+                                    <label class="inputL">Расчеты по внебюджетным платежам</label>
+                                    <input class="inpuT" type="number" formControlName="off_budget_payments">
+                    
+                                    <label class="inputL">Прочая</label>
+                                    <input class="inpuT" type="number" formControlName="other">
+                                </div>
+                                <h4>Долгосрончый кредит</h4>
+                                <label class="inputL">Долгосрончый кредит</label>
+                                <input class="inpuT" type="number" formControlName="long_term_debt">
+                            </div>
+                    
+                            <div class="own_capital" formGroupName="own_capital">
+                                <h4>СОБСТВЕННЫЙ КАПИТАЛ</h4>
+                                <label class="inputL">Уставный капитал (стартовый)</label>
+                                <input class="inpuT" type="number" formControlName="statutory_capital_startup">
+                    
+                                <label class="inputL">Собственный капитал (прибыль)</label>
+                                <input class="inpuT" type="number" formControlName="own_capital_profit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="OPiU" formGroupName="OPiU">
+                    <h3>ОПиУ:</h3>
+                    <div class="used_kind_business" formArrayName="used_kind_business_ident">
+                        <h4>Типы бизнесов</h4>
+                        <button type="button" (click)="addUsed_kind_business_ident()" style="height: 20px; width: 200; background-color: red;">Add kind busines</button>
+                        <div *ngFor="let kind_bs of used_kind_business_ident.controls; let i = index">
+                            <label for="kind_bs-{{ i }}" class="inputL">Id </label>
+                            <input id="kind_bs-{{ i }}" class="inpuT" type="number" formControlName="i">
+                        
+                            <label for="kind_bs_name-{{ i }}" class="inputL">Название вид деятельности</label>
+                            <input id="kind_bs_name-{{ i }}" class="inpuT" type="text" formControlName="i">
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+            <button type="submit"
+            class="btnPush"
+            [disabled]="!formScore.valid">Sumbit</button>
+        </form>
+    </div>
+</div>

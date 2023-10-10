@@ -1,0 +1,20 @@
+.body__usable {
+    // width: calc(100% - var(--sidenav-width));
+    width: 100wh;
+    height: 100vh;
+    margin-left: var(--sidenav-width);
+    z-index: 0;
+    position: relative;
+    transition: all .5s ease;
+    background: var(--class-body-background);
+}
+
+.body-trimmed {
+    width: calc(100% - var(--sidenav-collapsed-width)); 
+    margin-left: var(--sidenav-collapsed-width);
+}
+
+.body-md-screen {
+    width: calc(100% - var(--sidenav-width));
+    margin-left: var(--sidenav-width);
+}

@@ -1,0 +1,263 @@
+//reusable code
+
+
+//main page
+
+.container {
+    position: relative;
+    align-content: center;
+    align-items: center;
+    margin: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    .container__inner {
+        position: relative;
+        padding: 30px 20px 0px 30px;
+
+        .details {
+            margin-top: 30px;
+    
+            .title {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 20px;
+                font-weight: 500;
+                margin: 6px 0 1rem 0;
+                color: #333;
+            }
+        }
+
+        .container__header {
+            position: relative;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .container__header::before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            height: 3px;
+            width: 30px;
+            border-radius: 7px;
+            background-color: #4070f4;
+        }
+
+        .form {
+            .fields {
+                height: 39.5rem;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 40px;
+                border-radius: 10px;
+                background-color: rgba(230, 230, 230, 0.1);
+                box-shadow: 0 0 10px 5px rgba(202, 202, 202, 0.2) inset;
+                overflow-y: scroll;
+                overflow-x: hidden;
+
+                .fields-list {
+                    columns: 3;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    column-rule: 1px solid black;
+
+                    .field-item {
+                        page-break-inside: avoid;
+                        break-inside: avoid;
+                        margin-bottom: 15px;
+                        padding: 10px;
+                        // border: 1px solid red;
+
+                        
+
+                        $label-input_font-size: 15px;
+                        $label-input_font-weight: 400;
+
+                        .label-input {
+                            font-size: $label-input_font-size;
+                            font-weight: $label-input_font-weight;
+                            // margin-bottom: 5px;
+                        }
+                        
+                        //select input
+                        .wrapper-select {
+                            // height: 100px;
+                            // border: 1px solid red;
+                            // display: flex;
+
+                            select {
+                                display: block;
+                                position: relative;
+                                align-items: center;
+                                cursor: pointer;
+                                padding-right: 0;
+                                height: 5rem;
+                                width: 100%;
+                                padding: 5px 10px;
+                                font-size: 15px;
+
+                                option {
+                                    white-space: normal;
+                                    margin: 3px 0;
+                                    //
+                                    // color: red;
+                                }
+                            }
+
+                        }
+
+                        // inputbox
+                        .wrapper-inputbox {
+                            // border: 1px solid red;
+                            // padding: 5px 2px 5px 2px;
+                            padding-bottom: 8px;
+
+                            input {
+                                margin-top: 5px;
+                                display: block;
+                                font-size: 20px;
+                                height: 40px;
+                                width: 100%;
+                                padding: 5px;
+                                border-radius: 3px;
+                            }
+
+                            input::placeholder {
+                                font-size: $label-input_font-size;
+                                font-weight: $label-input_font-weight;
+                            }
+
+                            input::-webkit-outer-spin-button,
+                            input::-webkit-inner-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+                            }
+
+                            input[type=number] {
+                                -moz-appearance: textfield;
+                            }
+                        }
+
+                        //input checkbox
+                        .wrapper-checkbox {
+                            height: 3rem;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                            display: flex;
+                            align-items: center;
+                            // padding: 10px;
+                            justify-content: center;
+                            border-radius: 10px 25px 25px 10px;
+                            background-color: #fff;
+                            padding: 3.5px;
+
+                            .checkbox {
+                                appearance: none;
+                                -webkit-appearance: none;
+                                height: 2vw;
+                                width: 2vw;
+                                float: right;
+                                cursor: pointer;
+                                // background-color: #d5d5d5;
+                                background-color: red;
+                                border-radius: 50%;
+                                transition: 0.5s;
+                            }
+
+                            // .checkbox:hover {
+                            //     box-shadow: 0 0 60px -20px #6cbe45 inset;
+                            // }
+
+                            .checkbox:checked {
+                                background-color: #6cbe45;
+                            }
+                        }
+
+                        
+                        
+
+                        //radio wrapper
+                        .wrapper-radio {
+                            height: 100px;
+                            // border: 1px solid red;
+                        }
+                    }
+                }
+            }
+        
+            .fields::-webkit-scrollbar {
+                display: none;
+            }
+
+
+            .btnPush {
+                height: 2.689rem;
+                width: 10rem;
+                font-weight: 500;
+                border: 0;
+                border-radius: 10px;
+                margin: 30px 20px 30px 0;
+                text-align: center;
+                align-items: center;
+                font-size: 17px;
+                color: #fff;
+                background-color: #1899D6;
+                cursor: pointer;
+                transition: .3s;
+                box-shadow: 5px 5px 20px -5px rgba(78, 78, 78, 0.89);
+            }
+
+            .btnPush:hover {
+                background-color: #46a7d4;
+                box-shadow: 8px 8px 0px -3px rgba(168, 168, 168, 0.4);
+            }
+        }
+    }
+}
+
+
+
+// @media (max-width: 750px) {
+//     .container {
+//         .container__inner {
+//             .form {
+//                 .fields {
+//                     ul {
+//                         columns: 2;
+
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     .wrapper-checkbox {
+//         label {
+//             // font-size: 10px;
+//             word-wrap: break-all;
+//         }
+//     }
+// }
+
+
+// @media (max-width: 625px) {
+//     .container {
+//         .container__inner {
+//             .form {
+//                 .fields {
+//                     ul {
+//                         columns: 1;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     .wrapper-checkbox {
+//         label {
+//             font-size: 10px;
+//         }
+//     }
+// }

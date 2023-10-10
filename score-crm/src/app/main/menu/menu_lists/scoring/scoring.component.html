@@ -1,0 +1,168 @@
+<div class="container">
+    <div class="container__inner">
+        <header class="container__header">Total Information</header>
+        <div class="details">
+            <span class="title">First columns</span>
+        </div>
+        <form class="form" [formGroup]="userForm">
+            <div class="fields">
+                <ul class="fields-list">
+                    <li class="field-item" formGroupName="total_inf">
+                        <div formGroupName="client_info">
+                            <label class="title-input">Данные о потенцаильном клиента</label>
+                            <div class="wrapper-inputbox">
+                                <label class="label-input">ИНН</label>
+                                <input type="number" formControlName="inn" placeholder="Введите ИНН" NumberOnly>
+                            </div>
+                            
+                            <div class="wrapper-inputbox">
+                                <label class="label-input">Фамилия</label>
+                                <input type="text" formControlName="first_name" placeholder="ФАМИЛИЯ" required>
+                            </div>
+                            
+                            <div class="wrapper-inputbox">
+                                <label class="label-input">Имя</label>
+                                <input type="text" formControlName="middle_name" placeholder="ИМЯ" required>
+                            </div>
+                            
+                            <div class="wrapper-inputbox">
+                                <label class="label-input">Отчетсво</label>
+                                <input type="text" formControlName="last_name" placeholder="ОТЧЕТСВО">
+                            </div>
+                            
+                            <div class="wrapper-inputbox">
+                                <label class="label-input">Номер телефона</label>
+                                <input type="number" formControlName="phone_number" placeholder="+996 (XXX) XX-XX-XX" NumberOnly required>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="field-item" formGroupName="bank_info">
+                        <div class="wrapper-select" style="margin-bottom: 6px;">
+                            <label class="title-input">Список банков партнеров</label>
+                            <select required multiple formControlName="bank_name">
+                                <option *ngFor="let vid of bank_list" value="{{vid.value}}">{{vid.text}}</option>
+                            </select>
+                        </div>
+                        
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Филиал банка</label>
+                            <input 
+                                type="text"
+                                formControlName="bank_branch" 
+                                placeholder="Филиал банка"
+                                required
+                            >
+                        </div>
+                    </li>
+
+                    <li class="field-item" formGroupName="bank_loan_manager">
+                        <label class="title-input" >Куратор по кредиту</label>
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Фамилия</label>
+                            <input 
+                                type="text" 
+                                formControlName="first_name" 
+                                placeholder="Фамилия"
+                                required
+                            >
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Имя</label>
+                            <input 
+                                type="text" 
+                                formControlName="middle_name" 
+                                placeholder="Имя"
+                                required
+                            >
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Отчетсво</label>
+                            <input 
+                                type="text" 
+                                formControlName="last_name" 
+                                placeholder="Отчетсво"
+                                required
+                            >
+                        </div>
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Номер телефона</label>
+                            <input type="number" formControlName="phone_number" placeholder="+996 (XXX) XX-XX-XX" NumberOnly required>
+                        </div>
+                    </li>
+                    <li class="field-item" formGroupName="financial_data_from_bank">
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Сумма финансирования</label>
+                            <input type="number" formControlName="funding_amount" placeholder="700 000 с" NumberOnly required>
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Сумма запрашиваемой гарантии</label>
+                            <input type="number" formControlName="guarantee_amount" placeholder="200 000" NumberOnly required>
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Срок финансирования</label>
+                            <input type="number" formControlName="funding_term_month" placeholder="6 мес" NumberOnly required>
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Процентная ставка</label>
+                            <input type="number" formControlName="interest_rate" placeholder="20 %" NumberOnly required>
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Цель финансирования</label>
+                            <input type="text" formControlName="purpose_funding" placeholder="Увелечение продаж?" required>
+                        </div>
+
+                        <div class="wrapper-select" style="margin-bottom: 6px;">
+                            <label class="title-input">Вид деятельности</label>
+                            <select required multiple formControlName="kind_of_business">
+                                <option *ngFor="let vid of vid_deyatilnosti" value="{{vid.value}}">{{vid.text}}</option>
+                            </select>
+                        </div>
+                    </li>
+
+
+
+                    <li class="field-item" formGroupName="quality_indicator" style="border: 1px solid red;">
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Срок работы бизнеса</label>
+                            <input type="number" formControlName="funding_amount" placeholder="Увелечение продаж?" required>
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input">Срок наличия патента</label>
+                            <input type="number" formControlName="guarantee_amount" placeholder="Увелечение продаж?" required>
+                        </div>
+
+                        <div class="wrapper-checkbox" style="margin: 10px 0;">
+                            <label class="label-input" for="debtB" style="height: 100%; width: 100%; padding-top: 10px; user-select: none;">Задолжность перед бюджетом</label>
+                            <input class="checkbox" type="checkbox" formControlName="funding_term_month" id="debtB" required>
+                        </div>
+
+                        <div class="wrapper-inputbox">
+                            <label class="label-input" >Кредитная история супруга(и)</label>
+                            <input type="number" formControlName="interest_rate" placeholder="Увелечение продаж?" required>
+                        </div>
+
+                        <div class="wrapper-checkbox" style="margin: 10px 0;">
+                            <label class="label-input" for="commercial_prop" style="height: 100%; width: 100%; padding-top: 10px; user-select: none">Наличие коммерческой недвиж/сх земля/коммер. тс</label>
+                            <input class="checkbox" type="checkbox" id="commercial_prop" formControlName="purpose_funding"required>
+                        </div>
+
+                        <div class="wrapper-checkbox" style="margin: 10px 0;">
+                            <label class="label-input" for="own_property" style="height: 100%; width: 100%; padding-top: 10px; user-select: none">Наличие собственной недвижимости</label>
+                            <input class="checkbox" type="checkbox" id="own_property" formControlName="purpose_funding" required>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" class="btnPush">Далее</button>       
+            <button class="btnPush" (click)="clickEv()">test</button>       
+        </form>
+    </div>
+</div>

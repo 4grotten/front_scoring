@@ -1,0 +1,851 @@
+<div class="container">
+    <div class="container__inner">
+        <header>Информация о потенциальном клиенте</header>
+        <div class="details">
+            <span class="title">Ввод данных</span>
+        </div>
+        <form class="form">
+            <div class="form_group" *ngIf="step == 1">
+                <h2>О клиенте</h2>
+                <ul class="input_list">
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>ИНН</label>
+                            <input type="number" [formControl]="scoringForm.total_inf.client_info.inn"
+                                placeholder="Ведите ИНН" required/>
+                        </div>
+                    </li>
+            
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Фамилия</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.client_info.first_name"
+                                placeholder="ФАМИЛИЯ" required/>
+                        </div>
+                    </li>
+            
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Имя</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.client_info.middle_name"
+                                placeholder="ИМЯ" required/>
+                        </div>
+                    </li>
+            
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Отчетство</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.client_info.last_name"
+                                placeholder="ОТЧЕТСТВО" />
+                        </div>
+                    </li>
+            
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Номер телефона</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.client_info.phone_number"
+                                placeholder="+996500112233" required/>
+                        </div>
+                    </li>
+            
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label class="title_input">Название банка партнера</label>
+                            <select required [formControl]="scoringForm.total_inf.bank_info.bank_name" required>
+                                <option *ngFor="let bList of banklist" [ngValue]="bList.value">{{bList.text}}</option>
+                            </select>
+                        </div>
+                    </li>
+            
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Филиал банка:</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.bank_info.bank_branch"
+                                placeholder="ФИЛИАЛ БАНКА" required/>
+                        </div>
+                    </li>
+            
+                    <li class="input_list-item">
+                        <h3 style="margin: 20px 10px;">Куратор по кредиту</h3>
+                        <div class="input-box">
+                            <label>Фамилия:</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.bank_info.bank_loan_manager.first_name" 
+                                placeholder="Фамилия" required/>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Имя:</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.bank_info.bank_loan_manager.middle_name" 
+                                placeholder="Имя" required/>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Отчетство</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.bank_info.bank_loan_manager.last_name" 
+                                placeholder="Отчетство"/>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Номер телефона:</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.bank_info.bank_loan_manager.phone_number" 
+                                placeholder="+996500112233" required/>
+                        </div>
+                    </li>
+
+                    <li class="input_list-item">
+                        <h3 style="margin: 20px 10px;">Финансовые данные от банка</h3>
+
+                        <div class="input-box">
+                            <label>Сумма гарантии:</label>
+                            <input type="number" [formControl]="scoringForm.total_inf.financial_data_from_bank.guarantee_amount"
+                                placeholder="СУММА ГАРАНТИЯ БАНКА" required/>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Сумма финансирования:</label>
+                            <input type="number" [formControl]="scoringForm.total_inf.financial_data_from_bank.funding_amount"
+                                placeholder="СУММА ФИНАНСИРОВАНИЯ" required/>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Процентная ставка:</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.financial_data_from_bank.interest_rate"
+                                placeholder="ПРОЦЕНТНАЯ СТАВКА" required/>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Цель финансирования:</label>
+                            <input type="text" [formControl]="scoringForm.total_inf.financial_data_from_bank.purpose_funding"
+                                placeholder="ЦЕЛЬ ФИНАНСИРОВАНИЯ" required/>
+                        </div>
+
+                        <div class="input-box">
+                            <label class="title_input">Вид деятельности</label>
+                            <select required [formControl]="scoringForm.total_inf.financial_data_from_bank.kind_of_business" required>
+                                <option *ngFor="let bList of vid_deyat" [ngValue]="bList.value">{{bList.text}}</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="form_group" *ngIf="step == 2">
+                <h2>Качественный показатель</h2>
+                <ul class="input_list">
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Срок работы бизнеса (мес)</label>
+                            <input type="number" [formControl]="scoringForm.quality_indicator.business_lifespan"
+                                placeholder="Введите срок бизнеса" required/>
+                        </div>
+                    </li>
+
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Срок патента (мес)</label>
+                            <input type="number" [formControl]="scoringForm.quality_indicator.term_has_patent"
+                                placeholder="0" required/>
+                        </div>
+                    </li>
+                    
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label for="debt_to_budget">Задолжность перед бюджетом</label>
+                            <input id="debt_to_budget" type="checkbox" [formControl]="scoringForm.quality_indicator.debt_to_budget">
+                        </div>
+                    </li>
+                    
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label class="title_input">Кредитная история супруги(а) клиента</label>
+                            <select required [formControl]="scoringForm.quality_indicator.credit_history_of_spouse">
+                                <option *ngFor="let bList of repaiment_status" [ngValue]="bList.value">{{bList.text}}</option>
+                            </select>
+                        </div>
+                    </li>
+
+                    <li class="input_list-item">
+                        <h3>Коммерческое имущество</h3>
+                        <div class="input-box">
+                            <label>Собственное</label>
+                            <input type="checkbox" [formControl]="scoringForm.quality_indicator.commercial_property.own_property">
+
+                            <label>Арендованное</label>
+                            <input type="checkbox" [formControl]="scoringForm.quality_indicator.commercial_property.rented_property">
+
+                            <label>Соотношение между собственным и арендованным имуществом</label>
+                            <input type="number" [formControl]="scoringForm.quality_indicator.commercial_property.own_property_percentage">
+                        </div>
+                    </li>
+                    
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Собственное имущество</label>
+                            <input type="checkbox" [formControl]="scoringForm.quality_indicator.own_property">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form_group" *ngIf="step == 3">
+                <h2>Финансовые данные</h2>
+                <h3>Баланс</h3>
+                <ul class="input_list">
+                    <h4>Первая дата</h4>
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Баланс</label>
+                            <input type="date" [formControl]="scoringForm.financial_data.balance.first_date.date"
+                                required/>
+                        </div>
+                        <div class="active" style="border: 1px solid blue; padding: 20px; border-radius: 10px; margin-bottom: 10px;">
+                            <h1>Активы</h1>
+                            <div class="working_assets">
+                                <h2>Оборотный капитал</h2>
+                                <div class="liquid_funds">
+                                    <h3>Ликвидные средства</h3>
+                                    <div class="input-box">
+                                        <label>Касса</label>
+                                        <input type="number" [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.liquid_funds.cash_box"
+                                            placeholder="Ликвидные средства" />
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <label>Расчетный счет</label>
+                                        <input type="number" [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.liquid_funds.bank_account"
+                                            placeholder="Расчетный счет" />
+                                    </div>
+
+                                    <div class="input-box">
+                                        <label>Сбережения</label>
+                                        <input type="number" [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.liquid_funds.conservation"
+                                            placeholder="Сбережения" />
+                                    </div>
+                                </div>
+                                <div class="accounts_receivable">
+                                    <h3>Дебиторская задолжность</h3>
+                                    <div class="input-box">
+                                        <label>Счета к получению</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.accounts_receivable.check_to_receive"
+                                            placeholder="Счета к получению" />
+                                    </div>
+
+                                    <div class="input-box">
+                                        <label>Предоплата за товар</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.accounts_receivable.prepayment_to_product"
+                                            placeholder="Предоплата за товар" />
+                                    </div>
+
+                                    <div class="input-box">
+                                        <label>Выданные авансы</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.accounts_receivable.paid_prepaid_expense"
+                                            placeholder="Выданные авансы" />
+                                    </div>
+
+                                    <div class="inventories">
+                                        <h3>Товарно-материальные запасы</h3>
+                                        <div class="input-box">
+                                            <label>Товары в торговом зале и на складе</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.inventories.first"
+                                                placeholder="Товары в торговом зале и на складе" />
+                                        </div>
+
+                                        <div class="input-box">
+                                            <label>Товары, полученные на реализацию</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.inventories.second"
+                                                placeholder="Товары, полученные на реализацию" />
+                                        </div>
+
+                                        <div class="input-box">
+                                            <label>Товары в пути</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.inventories.third"
+                                                placeholder="Товары в пути" />
+                                        </div>
+
+                                        <div class="input-box">
+                                            <label>Сырье и материалы</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.inventories.fourth"
+                                                placeholder="Сырье и материалы" />
+                                        </div>
+
+                                        <div class="input-box">
+                                            <label>Полуфабрикаты</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.inventories.five"
+                                                placeholder="Полуфабрикаты" />
+                                        </div>
+
+                                        <div class="input-box">
+                                            <label>Готовая продукция</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.first_date.active.working_assets.inventories.six"
+                                                placeholder="Готовая продукция" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_capital">
+                                <h3>Основной капитал</h3>
+                                <div class="input-box">
+                                    <label>Недвижимость</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.first_date.active.main_capital.property"
+                                        placeholder="Стоимость недвижимость" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>Оборудование</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.first_date.active.main_capital.equipment"
+                                        placeholder="Стоимость оборудования" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>Транспорт</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.first_date.active.main_capital.vehicle"
+                                        placeholder="Стоимость транспорта" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>Прочее</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.first_date.active.main_capital.other"
+                                        placeholder="Прочее" />
+                                </div>
+
+                                <div class="input-box">
+                                    <label>Инвестиции</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.first_date.active.main_capital.investments"
+                                        placeholder="Стоимость инвестиций" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="passive" style="border: 1px solid blue; padding: 20px; border-radius: 10px;">
+                            <h2>Пассивы</h2>
+                            
+                            <div class="borrowed_capital">
+                                <div class="short_term_debt">
+                                    <h3>Краткосрончые заемы</h3>
+                                    <div class="credit">
+                                        <div class="input-box">
+                                            <label>Кредит клиента</label>
+                                            <input type="number" [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.credit.client"
+                                            placeholder="Кредит / займы клиента" />
+                                        </div>
+                                        <div class="input-box">
+                                            <label>Кредит супруга(и)</label>
+                                            <input type="number" [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.credit.spouse"
+                                                placeholder="Кредит / займы супруга(и)" />
+                                        </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Счета к оплате за товар, услуги</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.account_for_occasion"
+                                            placeholder="Счета за товар" />
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <label>Товарный кредит</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.trade_credit"
+                                            placeholder="Товарный кредит" />
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <label>Предоплата от покупателей</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.prepayment_from_customer"
+                                            placeholder="Предоплата от покупателей" />
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <label>Расчеты с бюджетом</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.settlements_with_budget"
+                                            placeholder="Расчеты с бюджетом" />
+                                    </div>
+
+                                    <div class="input-box">
+                                        <label>Расчеты по внебюджетным платежам</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.off_budget_payments"
+                                            placeholder="Расчеты по внебюджетным платежам" />    
+                                    </div>
+                                    
+                                    <div class="input-box">
+                                        <label>Прочая</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.short_term_debt.other"
+                                            placeholder="Прочие расходы" />
+                                    </div>
+                                </div>
+                                <div class="long_term_debt">
+                                    <h3>Долгосрочные заемы</h3>
+                                    <div class="input-box">
+                                        <label>Долгосрочные заемы</label>
+                                        <input type="Активы" [formControl]="scoringForm.financial_data.balance.first_date.passive.borrowed_capital.long_term_debt"
+                                            placeholder="Введите срок бизнеса" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="own_capital">
+                                <div class="input-box">
+                                    <label>Устанвый капитал (стартовый)</label>
+                                    <input type="number" [formControl]="scoringForm.financial_data.balance.first_date.passive.own_capital.statutory_capital_startup"
+                                        placeholder="Введите срок бизнеса" />
+                                </div>
+                                <div class="input-box">
+                                    <label>Собственный капитал (прибыль)</label>
+                                    <input type="number" [formControl]="scoringForm.financial_data.balance.first_date.passive.own_capital.own_capital_profit"
+                                        placeholder="Введите срок бизнеса" />
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label>Валюта баланса</label>
+                                <input type="number"
+                                    placeholder="Валюта баланса" disabled />
+                            </div>
+                        </div>
+
+                    </li>
+
+                    <h4>Вторая дата</h4>                
+                    <li class="input_list-item">
+                        <div class="input-box">
+                            <label>Баланс</label>
+                            <input type="date" [formControl]="scoringForm.financial_data.balance.second_date.date"
+                                required />
+                        </div>
+                        <div class="active" style="border: 1px solid blue; padding: 20px; border-radius: 10px; margin-bottom: 10px;">
+                            <h1>Активы</h1>
+                            <div class="working_assets">
+                                <h2>Оборотный капитал</h2>
+                                <div class="liquid_funds">
+                                    <h3>Ликвидные средства</h3>
+                                    <div class="input-box">
+                                        <label>Касса</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.liquid_funds.cash_box"
+                                            placeholder="Ликвидные средства" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Расчетный счет</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.liquid_funds.bank_account"
+                                            placeholder="Расчетный счет" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Сбережения</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.liquid_funds.conservation"
+                                            placeholder="Сбережения" />
+                                    </div>
+                                </div>
+                                <div class="accounts_receivable">
+                                    <h3>Дебиторская задолжность</h3>
+                                    <div class="input-box">
+                                        <label>Счета к получению</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.accounts_receivable.check_to_receive"
+                                            placeholder="Счета к получению" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Предоплата за товар</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.accounts_receivable.prepayment_to_product"
+                                            placeholder="Предоплата за товар" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Выданные авансы</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.accounts_receivable.paid_prepaid_expense"
+                                            placeholder="Выданные авансы" />
+                                    </div>
+                        
+                                    <div class="inventories">
+                                        <h3>Товарно-материальные запасы</h3>
+                                        <div class="input-box">
+                                            <label>Товары в торговом зале и на складе</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.inventories.first"
+                                                placeholder="Товары в торговом зале и на складе" />
+                                        </div>
+                        
+                                        <div class="input-box">
+                                            <label>Товары, полученные на реализацию</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.inventories.second"
+                                                placeholder="Товары, полученные на реализацию" />
+                                        </div>
+                        
+                                        <div class="input-box">
+                                            <label>Товары в пути</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.inventories.third"
+                                                placeholder="Товары в пути" />
+                                        </div>
+                        
+                                        <div class="input-box">
+                                            <label>Сырье и материалы</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.inventories.fourth"
+                                                placeholder="Сырье и материалы" />
+                                        </div>
+                        
+                                        <div class="input-box">
+                                            <label>Полуфабрикаты</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.inventories.five"
+                                                placeholder="Полуфабрикаты" />
+                                        </div>
+                        
+                                        <div class="input-box">
+                                            <label>Готовая продукция</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.active.working_assets.inventories.six"
+                                                placeholder="Готовая продукция" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="main_capital">
+                                <h3>Основной капитал</h3>
+                                <div class="input-box">
+                                    <label>Недвижимость</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.second_date.active.main_capital.property"
+                                        placeholder="Стоимость недвижимость" />
+                                </div>
+                        
+                                <div class="input-box">
+                                    <label>Оборудование</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.second_date.active.main_capital.equipment"
+                                        placeholder="Стоимость оборудования" />
+                                </div>
+                        
+                                <div class="input-box">
+                                    <label>Транспорт</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.second_date.active.main_capital.vehicle"
+                                        placeholder="Стоимость транспорта" />
+                                </div>
+                        
+                                <div class="input-box">
+                                    <label>Прочее</label>
+                                    <input type="number" [formControl]="scoringForm.financial_data.balance.second_date.active.main_capital.other"
+                                        placeholder="Прочее" />
+                                </div>
+                        
+                                <div class="input-box">
+                                    <label>Инвестиции</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.second_date.active.main_capital.investments"
+                                        placeholder="Стоимость инвестиций" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="passive" style="border: 1px solid blue; padding: 20px; border-radius: 10px;">
+                            <h2>Пассивы</h2>
+                        
+                            <div class="borrowed_capital">
+                                <div class="short_term_debt">
+                                    <h3>Краткосрончые заемы</h3>
+                                    <div class="credit">
+                                        <div class="input-box">
+                                            <label>Кредит клиента</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.credit.client"
+                                                placeholder="Кредит / займы клиента" />
+                                        </div>
+                                        <div class="input-box">
+                                            <label>Кредит супруга(и)</label>
+                                            <input type="number"
+                                                [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.credit.spouse"
+                                                placeholder="Кредит / займы супруга(и)" />
+                                        </div>
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Счета к оплате за товар, услуги</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.account_for_occasion"
+                                            placeholder="Счета за товар" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Товарный кредит</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.trade_credit"
+                                            placeholder="Товарный кредит" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Предоплата от покупателей</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.prepayment_from_customer"
+                                            placeholder="Предоплата от покупателей" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Расчеты с бюджетом</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.settlements_with_budget"
+                                            placeholder="Расчеты с бюджетом" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Расчеты по внебюджетным платежам</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.off_budget_payments"
+                                            placeholder="Расчеты по внебюджетным платежам" />
+                                    </div>
+                        
+                                    <div class="input-box">
+                                        <label>Прочая</label>
+                                        <input type="number"
+                                            [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.short_term_debt.other"
+                                            placeholder="Прочие расходы" />
+                                    </div>
+                                </div>
+                                <div class="long_term_debt">
+                                    <h3>Долгосрочные заемы</h3>
+                                    <div class="input-box">
+                                        <label>Долгосрочные заемы</label>
+                                        <input type="Активы" [formControl]="scoringForm.financial_data.balance.second_date.passive.borrowed_capital.long_term_debt"
+                                            placeholder="Введите срок бизнеса" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="own_capital">
+                                <div class="input-box">
+                                    <label>Устанвый капитал (стартовый)</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.second_date.passive.own_capital.statutory_capital_startup"
+                                        placeholder="Введите срок бизнеса" />
+                                </div>
+                                <div class="input-box">
+                                    <label>Собственный капитал (прибыль)</label>
+                                    <input type="number"
+                                        [formControl]="scoringForm.financial_data.balance.second_date.passive.own_capital.own_capital_profit"
+                                        placeholder="Введите срок бизнеса" />
+                                </div>
+                            </div>
+                            <div class="input-box">
+                                <label>Валюта баланса</label>
+                                <input type="number" placeholder="Валюта баланса" disabled/>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form_group" *ngIf="step == 4">
+                <h2>Отчет о прибылях и убытках (ОПиУ)</h2>
+
+                <div class="OPiU">
+
+                    <div class="used_kind_busines_id" *ngFor="
+                        let opiuUsedKindOfBusinessIndex = index; 
+                        let opiuUsedKindBusiness of scoringForm.financial_data.OPiU.used_kind_business_ident">
+
+                        <!-- <select [formControl]="opiuUsedKindBusiness.used_kind_business_id"> -->
+                        <select [formControl]="scoringForm.financial_data.OPiU.used_kind_business_ident[0].used_kind_business_id" >
+                            <option *ngFor="let vid of vid_deyat" [ngValue]="vid.value">{{vid.text}}</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box" *ngIf="scoringForm.financial_data.OPiU.used_kind_business_ident[0].used_kind_business_id.value === 0 || scoringForm.financial_data.OPiU.used_kind_business_ident[0].used_kind_business_id.value === 2">
+                        <label>ТМЗ (%)</label>
+                        <input type="number" [formControl]="scoringForm.financial_data.OPiU.trade_margin_percentage" />
+                    </div>
+
+                    <div class="OPiUDataContiner">
+                        <div class="opiuData" *ngFor="let opiuData of scoringForm.financial_data.OPiU.OPiUData; let opiuDataIndex = index;" style="border: 1px solid blue; padding: 30px; border-radius: 10px; margin: 10px 0;">
+                            
+                            <div class="input-box">
+                                <label>№ {{opiuDataIndex + 1}}</label>
+                                <label></label>
+                            </div>
+
+                            <div class="input-box">
+                                <label>Дата</label>
+                                <input type="date"
+                                    [formControl]="opiuData.date" />
+                            </div>
+
+                            <div class="mutable_data" *ngFor="let mutableDataIndex = index; let mutData of opiuData.mutable_data">
+                                <div class="input-box">
+                                    <label>Выручка</label>
+                                    <input type="number" [formControl]="mutData.revenue" />
+                                </div>
+                                
+                                <div class="overheads">
+                                    <div class="input-box">
+                                        <label>Электричество</label>
+                                        <input type="number" [formControl]="mutData.overheads.electricity" />
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Транспортные расходы</label>
+                                        <input type="number" [formControl]="mutData.overheads.car_payments" />
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Налоги</label>
+                                        <input type="number" [formControl]="mutData.overheads.taxes" />
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Заработная плата</label>
+                                        <input type="number" [formControl]="mutData.overheads.salary" />
+                                    </div>
+                                    <div class="input-box">
+                                        <label>ГСМ</label>
+                                        <input type="number" [formControl]="mutData.overheads.GSM" />
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Питание</label>
+                                        <input type="number" [formControl]="mutData.overheads.food" />
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Аренда</label>
+                                        <input type="number" [formControl]="mutData.overheads.rent" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-box">
+                                <label>Семейные расходы</label>
+                                <input type="number" [formControl]="opiuData.family_expenses" />
+                            </div>
+                            
+                            <div class="input-box">
+                                <label>Дополнительные доходы</label>
+                                <input type="number" [formControl]="opiuData.additional_income" />
+                            </div>
+
+                            <div class="loan_payments" style="border: 1px solid red; margin: 20px; padding: 30px; border-radius: 10px;">
+                                <div class="loan_installment" *ngFor="let loanPayment of opiuData.loan_installment; let loanInstlIndex = index; ">
+                                    <div class="input-box">
+                                        <label>Взнос по кредиту</label>
+                                        <input type="number" [formControl]="loanPayment" />
+                                    </div>
+                                    <button type="button" (click)="removeLoanInstallmentInput(opiuDataIndex, loanInstlIndex)" style="height: 50px; width: 100px; background-color: rgb(231, 44, 44);">Удалить кред. взнос</button>
+                                </div>
+                                <button type="button" (click)="addLoanInstallmentInput(opiuDataIndex)" style="height: 60px; width: 100px; background-color: rgb(31, 137, 31);">Добавить кредитный взнос</button>
+                            </div>
+                            <button type="button" (click)="removeOpiuData(opiuDataIndex)" style="height: 40px; width: 100px; background-color: red;" > Удалить месяц </button>
+                        </div>
+                        <button type="button" (click)="addOpiuData()" style="height: 50px; width: 100px;">Добавить месяц</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_group" *ngIf="res && step === 0">
+                <div class="result" style="overflow: auto;">
+                    <p>Баллы: {{res['result']['points']}}</p>
+                    <p>Статус: {{res['result']['status']}}</p>
+                    <p>Рейтинг: {{res['result']['rating']}}</p>
+                
+                    <!-- <div class="overflow_container" style="overflow: auto;"> -->
+                
+                    <!-- </div> -->
+                    <h2>ОПиУ</h2>
+                    <ul class="item_OPu">
+                        <li class="item_OPiU">
+                            <p>Коэффициент ликвидности: {{res['balance']['liquid_coefficient']}}</p>
+                        </li>
+                        <li class="item_OPiU">
+                            <p>Доля собственного капитала: {{res['balance']['percent_of_own_capital']}}%</p>
+                        </li>
+                        <li class="item_OPiU">
+                            <p>Соотношение между суммой собст. капиталла и суммой кредита:
+                                {{res['balance']['ratio_between_own_capital_and_amount_credit']}}%</p>
+                        </li>
+                        <li class="item_OPiU">
+                            <p>Доля заемного капитала (на момент анализа):
+                                {{res['balance']['ratio_borrowed_capital']}}%</p>
+                        </li>
+                    </ul>
+                    <h3>Период</h3>
+                    <ul class="OPiU" *ngFor="let balance of res['OPiU']['period']">
+                        <li class="item_OPiU">
+                            <p>Дата: {{balance['Naming']}}</p>
+                            <p>Выручка: {{balance['revenue']}}</p>
+                            <p>Себестоимость: {{balance['cost_price']}}</p>
+                            <p>Валовая прибыль: {{balance['gross_profit']}}</p>
+                            <p>Накладные расходы: {{balance['overheads']}}</p>
+                            <p>Прибыль по бизнесу: {{balance['business_profit']}}</p>
+                            <p>Семейные расходы: {{balance['family_expenses']}}</p>
+                            <p>Дополнительные доходы: {{balance['additional_income']}}</p>
+                            <p>Чистая прибыль: {{balance['pure_profit']}}</p>
+                            <p>Взнос по кредиту: {{balance['loan_installment']}}</p>
+                            <p>Остаток: {{balance['balance_amount']}}</p>
+                            <p>Коэффициент покрытия взноса свободными денежными средствами (ПОДУШКА): {{balance['pillow']}}</p>
+                        </li>
+                    </ul>
+                    <h3>Среднее ОПиУ</h3>
+                    <ul class="OPiU">
+                        <li class="item_OPiU">
+                            <h4>Среднее</h4>
+                            <p>Среднее значение: {{res['OPiU']['mean']['Naming']}}</p>
+                            <p>Выручка: {{res['OPiU']['mean']['revenue']}}</p>
+                            <p>Себестоимость: {{res['OPiU']['mean']['cost_price']}}</p>
+                            <p>Валовая прибыль: {{res['OPiU']['mean']['gross_profit']}}</p>
+                            <p>Накладные расходы: {{res['OPiU']['mean']['overheads']}}</p>
+                            <p>Прибыль по бизнесу: {{res['OPiU']['mean']['business_profit']}}</p>
+                            <p>Семейные расходы: {{res['OPiU']['mean']['family_expenses']}}</p>
+                            <p>Дополнительные доходы: {{res['OPiU']['mean']['additional_income']}}</p>
+                            <p>Чистая прибыль: {{res['OPiU']['mean']['pure_profit']}}</p>
+                            <p>Взнос по кредиту: {{res['OPiU']['mean']['loan_installment']}}</p>
+                            <p>Остаток: {{res['OPiU']['mean']['balance_amount']}}</p>
+                            <p>Коэффициент покрытия взноса свободными денежными средствами (ПОДУШКА): {{res['OPiU']['mean']['pillow']}}
+                            </p>
+                        </li>
+                    </ul>
+                    <h3>Общяя сумма ОПиУ</h3>
+                    <ul class="OPiU">
+                        <li class="item_OPiU">
+                            <h4>Полная информация</h4>
+                            <p>Полная информация: {{res['OPiU']['full']['Naming']}}</p>
+                            <p>Выручка: {{res['OPiU']['full']['revenue']}}</p>
+                            <p>Себестоимость: {{res['OPiU']['full']['cost_price']}}</p>
+                            <p>Валовая прибыль: {{res['OPiU']['full']['gross_profit']}}</p>
+                            <p>Накладные расходы: {{res['OPiU']['full']['overheads']}}</p>
+                            <p>Прибыль по бизнесу: {{res['OPiU']['full']['business_profit']}}</p>
+                            <p>Семейные расходы: {{res['OPiU']['full']['family_expenses']}}</p>
+                            <p>Дополнительные доходы: {{res['OPiU']['full']['additional_income']}}</p>
+                            <p>Чистая прибыль: {{res['OPiU']['full']['pure_profit']}}</p>
+                            <p>Взнос по кредиту: {{res['OPiU']['full']['loan_installment']}}</p>
+                            <p>Остаток: {{res['OPiU']['full']['balance_amount']}}</p>
+                            <p>Коэффициент покрытия взноса свободными денежными средствами (ПОДУШКА): {{res['OPiU']['full']['pillow']}}
+                            </p>
+                        </li>
+                    </ul>
+                    <!-- <h2>Нынешнее время</h2> -->
+                
+                </div>
+            </div>
+        </form>
+        
+        <div class="buttons">
+            <button *ngIf="step > 1" (click)="scrolPrev()" style="border: 2px solid green; color: green;" >Назад</button>
+            <button *ngIf="step < 4" (click)="scrolNext()" style="background-color: green; color: #fff;">Вперед</button>
+            <button (click)="onSumbit()" style="border: 2px solid black; box-shadow: 1px 3px 26px -2px rgba(34, 60, 80, 0.2);">Расчитать</button>
+        </div>
+    </div>
+</div>

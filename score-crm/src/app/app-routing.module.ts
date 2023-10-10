@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { SettingsComponent } from './main/menu/menu_lists/settings/settings.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'scoring', pathMatch: 'full' },
+  { path: 'scoring', component: SettingsComponent }
+  // { path: 'dashboard', component: DashboardComponent },
+  // { path: 'scoring', component: ScoringComponent,
+  //   children: [
+  //     { path: 'secondInput', component: SecondInputComponent },
+  //     { path: 'result', component: ResultScoringComponent }
+  //   ]
+  // },
+  // { path: 'settings', component: SettingsComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

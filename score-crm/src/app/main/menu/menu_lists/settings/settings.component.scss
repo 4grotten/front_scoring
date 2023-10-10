@@ -1,0 +1,142 @@
+
+.container {
+    position: relative;
+    display: flex;
+    margin: 50px;
+    height: 90vh;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    .container__inner {
+        position: relative;
+        padding: 20px;
+        width: 90vw;
+
+        header {
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .details {
+            .title {
+                font-size: 20px;
+                font-weight: 300;
+            }
+        }
+
+        .form {
+            margin-top: 20px;
+
+            .form_group {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: 70vh;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 20px;
+                box-shadow: 1px 3px 26px -2px rgba(34, 60, 80, 0.2);
+                border-radius: 10px;
+
+                .input_list {
+                    columns: 2;
+                    list-style: none;
+                    display: block;
+                    padding: 20px;
+                    // box-shadow: 0 0 10px 5px rgba(202, 202, 202, 0.1) inset;
+                    border-radius: 10px;
+
+                    .input_list-item {
+                        page-break-inside: avoid;
+                        break-inside: avoid;
+                        border: 1px solid #d3e5f8;
+                        margin-bottom: 15px;
+                        border-radius: 10px;
+
+                        .input-box {
+                            // height: 180px;
+                            padding: 10px;
+                            display: block;
+
+                            label {
+                                font-size: 20px;
+                                font-weight: 400;
+                                display: block;
+                            }
+
+                            input {
+                                margin: 5px;
+                                border-radius: 5px;
+                                border: none;
+                                border-top: 2px solid #999999;
+                                border-bottom: 2px solid #999999;
+                                display: block;
+                                width: 100%;
+                                height: 50px;
+                                // -moz-appearance: textfield;
+                                padding: 10px;
+                                // box-shadow: 0 2px 15px -5px rgba(78, 78, 78, 0.89);
+                            }
+
+                            input:hover {
+                                background-color: #e7f3ff;
+                            }
+
+                            input:focus {
+                                outline: 0;
+                                background-color: #d3e5f8;
+                            }
+
+                            input:disabled:hover {
+                                background-color: whitesmoke;
+                            }
+
+                            input:disabled {
+                                background-color: whitesmoke;
+                            }
+
+                            input:required, select:required {
+                                box-shadow: 0px 0px 15px -2px rgba(216, 17, 17, 0.2);
+                            }
+
+                            // input::-webkit-outer-spin-button,
+                            // input::-webkit-inner-spin-button {
+                            //     -webkit-appearance: none;
+                            //     margin: 0;
+                            // }
+
+                            select {
+                                border-radius: 10px;
+                                font-size: 20px;
+                                padding: 10px;
+                                width: 100%;
+                                height: 50px;
+                                font-weight: 300;
+                                scrollbar-width: none;
+                                -ms-overflow-style: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin: 0 auto;
+            text-align: right;
+            width: 100%;
+            padding: 20px;
+
+            button {
+                height: 50px;
+                width: 200px;
+                border-radius: 10px;
+                margin: 0 10px;
+            }
+        }
+
+    }
+}

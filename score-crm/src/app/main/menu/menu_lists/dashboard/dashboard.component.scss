@@ -1,0 +1,36 @@
+.container {
+    border: 1px solid red;
+    height: 100%;
+    position: relative;
+    align-items: center;
+
+    .form {
+        border: 1px solid blue;
+        width: 1000px;
+        height: 100%;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .btnPush {
+        margin: 20px 0;
+        height: 40px;
+        width: 200px;
+        background-color: rgb(104, 104, 255);
+        color: #fff;
+        border: 0;
+    }
+
+    .btnPush:hover {
+        background-color: blue;
+        float: none;
+    }
+
+    .inputL {
+        display: flex;
+    }
+
+    .inpuT {
+        display: flex;
+    }
+}
